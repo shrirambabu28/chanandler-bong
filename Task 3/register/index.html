@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>REGISTER FORM</title>
+<script type="text/javascript">
+function validateform(){
+      var name=document.myform.uid.value;
+      var pass= /^(?=(.*[\W]){1,})(?=(.*[a-z]){1,})/;
+      var reg=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+     
+      if(name==null||name==""||name.length<5||name.length>10){
+            alert("Username doesnt satisfy the needs");
+      return false;
+      }
+      
+       else if(myform.pwd.value.length<5||!myform.pwd.value.match(pass))
+      {alert("Password doesnt satisfy the needs");
+            return false;
+      }
+      
+      else if(myform.full.value==""){
+            alert("Enter the fullname");
+            return false;
+      }
+      
+      else if(myform.email.value==""||reg.test(myform.email.value)==false){
+            alert("Please enter a valid email address.");
+            myform.email.focus();
+            return false;
+      }      
+       
+     
+}
+</script>
+</html>
+<body background="bag.jpg">
+
+<p id="demo"></p>
+<p><b>Note: </b>If port number is default, most browers will display 0 or nothing.</p>
+<script>
+document.getElementById("demo").innerHTML =
+"The port number of the current page is:9000 " +window.location.port;</script>
+
+<h1 align="center"><font color="red"><strong>WELCOME TO THE DELTA PAGE</strong></font></h1>
+<form name="myform" method="POST" action ="signup.inc.php">
+	<table align="center">
+		<tr>
+			<td>Username:</td>
+			<td>
+				<input type="text" placeholder="Username" name="uid"></td></tr>
+            <tr>
+            <td>Password:</td>
+            <td>
+            	<input type="password" placeholder="Password" name="pwd"></td></tr>
+            <tr>
+            <td>Full name:</td>
+            <td><input type="text" placeholder="Full name" name="full"></td></tr> 
+            <tr>
+            <td>Email:</td>
+            <td><input type="text" placeholder="Email" name="email"></td></tr> 
+            <tr><td><input type="submit" value ="Submit" onclick="return validateform()"></td></tr>
+    </table>
+ </form>   
+</body>
+</html>
